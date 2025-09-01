@@ -23,22 +23,22 @@ A modern, multi-platform health and fitness tracking solution—an open-source G
 ## Quick Start
 
 1. **Clone the Repository**
-   ```sh
+   \`\`\`sh
    git clone https://github.com/PatoFlamejanteTV/healthyduck.git
    cd healthyduck
-   ```
+   \`\`\`
 
 2. **Install Dependencies**
    - For the main TypeScript/Node.js app:
-     ```sh
+     \`\`\`sh
      npm install
-     ```
+     \`\`\`
    - (Refer to respective SDK directories for multi-language support instructions.)
 
 3. **Run the Application**
-   ```sh
+   \`\`\`sh
    npm run dev
-   ```
+   \`\`\`
 
 ---
 
