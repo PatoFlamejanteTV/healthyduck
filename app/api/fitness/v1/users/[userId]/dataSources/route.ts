@@ -2,9 +2,9 @@ import { createClient } from "@/lib/supabase/server"
 import { type NextRequest, NextResponse } from "next/server"
 
 // GET /api/fitness/v1/users/{userId}/dataSources
-export async function GET(request: NextRequest, { params }: { params: Promise<{ userId: string }> }) {
+export async function GET(request: NextRequest, { params }: { params: { userId: string } }) {
   try {
-    const { userId } = await params
+    const { userId } = params
     const supabase = await createClient()
 
     // Verify authentication
@@ -27,7 +27,7 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
       return NextResponse.json({ error: "Failed to fetch data sources" }, { status: 500 })
     }
 
-    // Transform to Google Fit API format
+    // Transform to HealthyDuck API format
     const transformedDataSources = dataSources.map((ds) => ({
       dataStreamId: ds.data_stream_id,
       dataStreamName: ds.data_stream_name,
@@ -64,9 +64,9 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
 }
 
 // POST /api/fitness/v1/users/{userId}/dataSources
-export async function POST(request: NextRequest, { params }: { params: Promise<{ userId: string }> }) {
+export async function POST(request: NextRequest, { params }: { params: { userId: string } }) {
   try {
-    const { userId } = await params
+    const { userId } = params
     const body = await request.json()
     const supabase = await createClient()
 
@@ -113,7 +113,7 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
       return NextResponse.json({ error: "Failed to create data source" }, { status: 500 })
     }
 
-    // Transform response to Google Fit API format
+    // Transform response to HealthyDuck API format
     const response = {
       dataStreamId: dataSource.data_stream_id,
       dataStreamName: dataSource.data_stream_name,

@@ -1,0 +1,66 @@
+// Light theme (default)
+:root {
+  // Updated color tokens to match HealthyDuck fitness theme
+  --background: #{$background-light};
+  --foreground: #{$foreground-light};
+  --card: oklch(1 0 0);
+  --card-foreground: #{$foreground-light};
+  --popover: oklch(1 0 0);
+  --popover-foreground: #{$foreground-light};
+  --primary: #{$primary-green};
+  --primary-foreground: oklch(1 0 0);
+  --secondary: #{$accent-lime};
+  --secondary-foreground: #{$foreground-light};
+  --muted: #{$background-light};
+  --muted-foreground: oklch(0.45 0.01 258);
+  --accent: #{$accent-lime};
+  --accent-foreground: oklch(1 0 0);
+  --destructive: #{$error};
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.92 0.01 258);
+  --input: oklch(1 0 0);
+  --ring: #{$primary-green} / 0.5;
+  --chart-1: #{$primary-green-light};
+  --chart-2: #{$primary-green};
+  --chart-3: #{$accent-lime};
+  --chart-4: #{$info};
+  --chart-5: oklch(0.25 0.01 258);
+  --radius: #{$radius-lg};
+  --sidebar: #{$foreground-light};
+  --sidebar-foreground: oklch(1 0 0);
+  --sidebar-primary: #{$primary-green};
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: #{$accent-lime};
+  --sidebar-accent-foreground: #{$foreground-light};
+  --sidebar-border: oklch(0.92 0.01 258);
+  --sidebar-ring: #{$primary-green} / 0.5;
+}
+
+// Dark theme
+.dark {
+  @include dark-theme;
+  
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: #{$foreground-dark};
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: #{$foreground-dark};
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: #{$foreground-dark};
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
+}
+
+// High contrast theme (accessibility)
+.high-contrast {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0 0 0);
+  --primary: oklch(0 0 0);
+  --primary-foreground: oklch(1 0 0);
+  --border: oklch(0 0 0);
+  --ring: oklch(0 0 0);
+}

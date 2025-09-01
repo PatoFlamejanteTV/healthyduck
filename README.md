@@ -1,4 +1,4 @@
-# Healthyduck Google Fit clone
+# Healthyduck Fitness API Clone
 
 *Automatically synced with your [v0.app](https://v0.app) deployments*
 

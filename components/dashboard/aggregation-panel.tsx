@@ -15,15 +15,15 @@ export function AggregationPanel({ userId }: AggregationPanelProps) {
   const [aggregationData, setAggregationData] = useState<any[]>([])
   const [loading, setLoading] = useState(false)
   const [selectedPeriod, setSelectedPeriod] = useState("7")
-  const [selectedDataType, setSelectedDataType] = useState("com.google.step_count.delta")
+  const [selectedDataType, setSelectedDataType] = useState("com.ultimatequack.step_count.delta")
 
   const supabase = createBrowserClient()
 
   const dataTypes = [
-    { value: "com.google.step_count.delta", label: "Steps" },
-    { value: "com.google.calories.expended", label: "Calories" },
-    { value: "com.google.distance.delta", label: "Distance" },
-    { value: "com.google.active_minutes", label: "Active Minutes" },
+    { value: "com.ultimatequack.step_count.delta", label: "Steps" },
+    { value: "com.ultimatequack.calories.expended", label: "Calories" },
+    { value: "com.ultimatequack.distance.delta", label: "Distance" },
+    { value: "com.ultimatequack.active_minutes", label: "Active Minutes" },
   ]
 
   const periods = [

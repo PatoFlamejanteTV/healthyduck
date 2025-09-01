@@ -5,7 +5,7 @@ create table if not exists public.data_sources (
   data_stream_id text not null, -- unique identifier for the data stream
   data_stream_name text not null,
   type text not null, -- 'raw' or 'derived'
-  data_type_name text not null, -- e.g., 'com.google.step_count.delta'
+  data_type_name text not null, -- e.g., 'com.ultimatequack.step_count.delta'
   device_uid text,
   device_type text, -- 'phone', 'watch', 'scale', etc.
   device_manufacturer text,

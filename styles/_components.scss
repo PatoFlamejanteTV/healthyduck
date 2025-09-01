@@ -1,0 +1,158 @@
+// Dashboard specific styles
+.dashboard {
+  &__grid {
+    display: grid;
+    gap: $spacing-lg;
+    
+    @include tablet-up {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+  }
+  
+  &__metric-card {
+    @include card;
+    @include flex-column;
+    gap: $spacing-sm;
+    
+    &--primary {
+      border-left: 4px solid var(--primary);
+    }
+    
+    &--success {
+      border-left: 4px solid $success;
+    }
+    
+    &--warning {
+      border-left: 4px solid $warning;
+    }
+  }
+  
+  &__chart-container {
+    @include card($spacing-xl);
+    min-height: 300px;
+    
+    .recharts-wrapper {
+      width: 100% !important;
+    }
+  }
+}
+
+// API Documentation styles
+.api-docs {
+  &__section {
+    margin-bottom: $spacing-2xl;
+    
+    h2 {
+      @include flex-between;
+      margin-bottom: $spacing-lg;
+      padding-bottom: $spacing-sm;
+      border-bottom: 2px solid var(--border);
+    }
+  }
+  
+  &__endpoint {
+    @include card;
+    margin-bottom: $spacing-lg;
+    
+    &-header {
+      @include flex-between;
+      margin-bottom: $spacing-md;
+      
+      .method {
+        padding: $spacing-xs $spacing-sm;
+        border-radius: $radius-sm;
+        font-size: $font-size-xs;
+        font-weight: 600;
+        text-transform: uppercase;
+        
+        &--get { background: $success; color: white; }
+        &--post { background: $primary-green; color: white; }
+        &--put { background: $warning; color: white; }
+        &--delete { background: $error; color: white; }
+      }
+    }
+  }
+  
+  &__code-block {
+    background: var(--muted);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: $spacing-md;
+    overflow-x: auto;
+    
+    pre {
+      margin: 0;
+      font-family: var(--font-mono);
+      font-size: $font-size-sm;
+    }
+  }
+}
+
+// Authentication pages
+.auth {
+  &__container {
+    @include flex-center;
+    min-height: 100vh;
+    padding: $spacing-lg;
+  }
+  
+  &__card {
+    @include card($spacing-xl);
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  &__form {
+    @include flex-column;
+    gap: $spacing-md;
+  }
+  
+  &__input {
+    padding: $spacing-sm $spacing-md;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--input);
+    color: var(--foreground);
+    
+    &:focus {
+      outline: 2px solid var(--ring);
+      outline-offset: 2px;
+    }
+  }
+  
+  &__button {
+    @include button-primary;
+    padding: $spacing-sm $spacing-lg;
+    width: 100%;
+  }
+}
+
+// Animations
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+// Utility classes
+.fade-in { @include fade-in; }
+.slide-up { @include slide-up; }
+.fitness-gradient { @include fitness-gradient; }
+.success-gradient { @include success-gradient; }
+.text-truncate { @include text-truncate; }
+.text-balance { @include text-balance; }

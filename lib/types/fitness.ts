@@ -79,7 +79,7 @@ export interface UserProfile {
   }
 }
 
-// Common activity types (matching Google Fit)
+// Common activity types (matching HealthyDuck standards)
 export const ActivityTypes = {
   UNKNOWN: 0,
   BIKING: 1,
@@ -94,11 +94,11 @@ export const ActivityTypes = {
 
 // Common data type names
 export const DataTypeNames = {
-  STEP_COUNT_DELTA: "com.google.step_count.delta",
-  DISTANCE_DELTA: "com.google.distance.delta",
-  CALORIES_EXPENDED: "com.google.calories.expended",
-  HEART_RATE_BPM: "com.google.heart_rate.bpm",
-  WEIGHT: "com.google.weight",
-  HEIGHT: "com.google.height",
+  STEP_COUNT_DELTA: "com.ultimatequack.step_count.delta",
+  DISTANCE_DELTA: "com.ultimatequack.distance.delta",
+  CALORIES_EXPENDED: "com.ultimatequack.calories.expended",
+  HEART_RATE_BPM: "com.ultimatequack.heart_rate.bpm",
+  WEIGHT: "com.ultimatequack.weight",
+  HEIGHT: "com.ultimatequack.height",
   // Add more as needed
 } as const

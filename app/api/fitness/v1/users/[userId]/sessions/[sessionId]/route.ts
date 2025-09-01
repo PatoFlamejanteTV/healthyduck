@@ -31,7 +31,7 @@ export async function GET(
       return NextResponse.json({ error: "Session not found" }, { status: 404 })
     }
 
-    // Transform to Google Fit API format
+    // Transform to HealthyDuck API format
     const response = {
       id: session.session_id,
       name: session.name,
@@ -97,7 +97,7 @@ export async function PUT(
       return NextResponse.json({ error: "Failed to update session" }, { status: 500 })
     }
 
-    // Transform response to Google Fit API format
+    // Transform response to HealthyDuck API format
     const response = {
       id: session.session_id,
       name: session.name,

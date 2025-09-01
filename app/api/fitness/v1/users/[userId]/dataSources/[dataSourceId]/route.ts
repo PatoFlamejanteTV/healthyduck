@@ -31,7 +31,7 @@ export async function GET(
       return NextResponse.json({ error: "Data source not found" }, { status: 404 })
     }
 
-    // Transform to Google Fit API format
+    // Transform to HealthyDuck API format
     const response = {
       dataStreamId: dataSource.data_stream_id,
       dataStreamName: dataSource.data_stream_name,

@@ -155,15 +155,17 @@ export default async function DashboardPage() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Welcome Section */}
         <div className="mb-8">
-          <h2 className="text-3xl font-bold text-foreground mb-2">
+          <h2 className="text-3xl font-bold text-foreground mb-2 text-balance">
             Welcome back, {profile?.display_name || "Fitness Enthusiast"}!
           </h2>
-          <p className="text-muted-foreground">Track your fitness journey and manage your health data with ease.</p>
+          <p className="text-muted-foreground text-pretty">
+            Track your fitness journey and manage your health data with ease.
+          </p>
         </div>
 
         {/* Key Metrics Overview */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          <Card className="bg-gradient-to-br from-primary/10 to-primary/5 border-primary/20">
+        <div className="dashboard__grid mb-8">
+          <Card className="dashboard__metric-card dashboard__metric-card--primary">
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
@@ -179,7 +181,7 @@ export default async function DashboardPage() {
             </CardContent>
           </Card>
 
-          <Card className="bg-gradient-to-br from-chart-1/10 to-chart-1/5 border-chart-1/20">
+          <Card className="dashboard__metric-card dashboard__metric-card--success">
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
@@ -195,7 +197,7 @@ export default async function DashboardPage() {
             </CardContent>
           </Card>
 
-          <Card className="bg-gradient-to-br from-chart-3/10 to-chart-3/5 border-chart-3/20">
+          <Card className="dashboard__metric-card dashboard__metric-card--warning">
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
@@ -211,7 +213,7 @@ export default async function DashboardPage() {
             </CardContent>
           </Card>
 
-          <Card className="bg-gradient-to-br from-chart-4/10 to-chart-4/5 border-chart-4/20">
+          <Card className="dashboard__metric-card">
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
@@ -230,18 +232,26 @@ export default async function DashboardPage() {
 
         {/* Data Visualization Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-          <ActivityChart data={activityData} />
-          <DataDistributionChart data={dataDistribution} />
+          <div className="dashboard__chart-container">
+            <ActivityChart data={activityData} />
+          </div>
+          <div className="dashboard__chart-container">
+            <DataDistributionChart data={dataDistribution} />
+          </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-          <WeeklySummaryChart data={weeklyData} />
-          <ProgressChart
-            data={progressData}
-            title="Step Goal Progress"
-            description="Weekly progress towards your 10,000 steps goal"
-            metric="steps"
-          />
+          <div className="dashboard__chart-container">
+            <WeeklySummaryChart data={weeklyData} />
+          </div>
+          <div className="dashboard__chart-container">
+            <ProgressChart
+              data={progressData}
+              title="Step Goal Progress"
+              description="Weekly progress towards your 10,000 steps goal"
+              metric="steps"
+            />
+          </div>
         </div>
 
         <div className="mb-8">

@@ -15,7 +15,7 @@ export async function GET(request: NextRequest, { params }: { params: { userId: 
 
     const { searchParams } = new URL(request.url)
     const days = Number.parseInt(searchParams.get("days") || "7")
-    const dataType = searchParams.get("dataType") || "com.google.step_count.delta"
+    const dataType = searchParams.get("dataType") || "com.ultimatequack.step_count.delta"
 
     const endDate = new Date()
     const startDate = new Date(endDate.getTime() - days * 24 * 60 * 60 * 1000)

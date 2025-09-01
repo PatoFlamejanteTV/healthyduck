@@ -52,7 +52,7 @@ export async function GET(
       return NextResponse.json({ error: "Failed to fetch data points" }, { status: 500 })
     }
 
-    // Transform to Google Fit API format
+    // Transform to HealthyDuck API format
     const transformedPoints = dataPoints.map((dp) => ({
       startTimeNanos: dp.start_time_nanos.toString(),
       endTimeNanos: dp.end_time_nanos.toString(),

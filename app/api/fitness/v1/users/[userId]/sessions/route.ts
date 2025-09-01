@@ -2,9 +2,9 @@ import { createClient } from "@/lib/supabase/server"
 import { type NextRequest, NextResponse } from "next/server"
 
 // GET /api/fitness/v1/users/{userId}/sessions
-export async function GET(request: NextRequest, { params }: { params: Promise<{ userId: string }> }) {
+export async function GET(request: NextRequest, { params }: { params: { userId: string } }) {
   try {
-    const { userId } = await params
+    const { userId } = params
     const { searchParams } = new URL(request.url)
     const startTime = searchParams.get("startTime")
     const endTime = searchParams.get("endTime")
@@ -36,7 +36,7 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
       return NextResponse.json({ error: "Failed to fetch sessions" }, { status: 500 })
     }
 
-    // Transform to Google Fit API format
+    // Transform to HealthyDuck API format
     const transformedSessions = sessions.map((session) => ({
       id: session.session_id,
       name: session.name,
@@ -63,9 +63,9 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
 }
 
 // POST /api/fitness/v1/users/{userId}/sessions
-export async function POST(request: NextRequest, { params }: { params: Promise<{ userId: string }> }) {
+export async function POST(request: NextRequest, { params }: { params: { userId: string } }) {
   try {
-    const { userId } = await params
+    const { userId } = params
     const body = await request.json()
     const supabase = await createClient()
 
@@ -109,7 +109,7 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
       return NextResponse.json({ error: "Failed to create session" }, { status: 500 })
     }
 
-    // Transform response to Google Fit API format
+    // Transform response to HealthyDuck API format
     const response = {
       id: session.session_id,
       name: session.name,
